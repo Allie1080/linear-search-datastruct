@@ -148,7 +148,7 @@ void displayAnimatedLinearSearch (std::forward_list<int> numberLinkedList, int t
 
 int main () {
     std::string dummy;
-    int findIndex;
+    int findIndex{0};
     std::vector<int> numberVector = {1, 2, 3, 5, 8, 13, 21, 34, 55};
     std::forward_list<int> numberLinkedList;
     
@@ -164,26 +164,32 @@ int main () {
     std::cout << "Index of 9 = " << doLinearSearch(numberVector, 2) << '\n';
     std::cout << "Index of 10 = " << doLinearSearch(numberVector, 77) << '\n';
     getline(std::cin, dummy);
-
-    std::cout << '\n' << '\n';
-
+    std::cin.ignore();
+    
+    system("cls");
     std::cout << "Linked List:" << '\n';
     displayList(numberLinkedList);
-    std::getline(std::cin, dummy);
-    std::cout << "Index of 1: " << '\n';
-    displayLinearSearch(numberLinkedList, 1);
-    std::getline(std::cin, dummy);
-    system("cls");
-    displayAnimatedLinearSearch(numberLinkedList, 4);
-    std::getline(std::cin, dummy);
-    system("cls");
-    displayAnimatedLinearSearch(numberLinkedList, 6);
-    std::getline(std::cin, dummy);
-    system("cls");
-    displayAnimatedLinearSearch(numberLinkedList, 9);
-    std::getline(std::cin, dummy);
-    system("cls");
-    displayAnimatedLinearSearch(numberLinkedList, 10);
-    std::getline(std::cin, dummy);
+
+    while (findIndex != -2) {
+        std::cout << '\n';
+        std::cout << "Enter number to find: ";
+        std::cin >> findIndex;
+        system("cls");
+        displayAnimatedLinearSearch(numberLinkedList, findIndex);
+
+    }
+
+
+
+    // std::getline(std::cin, dummy);
+    // system("cls");
+    // displayAnimatedLinearSearch(numberLinkedList, 5);
+    // std::getline(std::cin, dummy);
+    // system("cls");
+    // displayAnimatedLinearSearch(numberLinkedList, 6);
+    // std::getline(std::cin, dummy);
+    // system("cls");
+    // displayAnimatedLinearSearch(numberLinkedList, 10);
+    // std::getline(std::cin, dummy);
 
 }
